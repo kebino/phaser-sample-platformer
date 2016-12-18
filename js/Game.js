@@ -9,16 +9,19 @@ TopDownGame.Game.prototype = {
 
         this.backgroundlayer = this.map.createLayer('backgroundLayer');
         this.blockedlayer = this.map.createLayer('blockedLayer');
+        
         //collision on blockedLayer
-        this.map.setCollisionBetween(769, 769, true, 'blockedLayer');
+        this.map.setCollisionBetween(248, 800, true, 'blockedLayer');
 
         this.backgroundlayer.resizeWorld();
         
+        //create player
         this.player = this.game.add.sprite(0, 0, 'player');
+        //enable physics for player
         this.game.physics.arcade.enable(this.player);
         this.player.body.gravity.y = 800;
-        
         this.player.body.collideWorldBounds =true;
+        //player size will be scaled to half
         this.player.scale.setTo(0.5,0.5);
         //the camera will follow the player in the world
         this.game.camera.follow(this.player);
