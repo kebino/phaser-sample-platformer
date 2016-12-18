@@ -19,6 +19,7 @@ TopDownGame.Game.prototype = {
         this.player.body.gravity.y = 800;
         
         this.player.body.collideWorldBounds =true;
+        this.player.scale.setTo(0.5,0.5);
         //the camera will follow the player in the world
         this.game.camera.follow(this.player);
         
@@ -37,11 +38,13 @@ TopDownGame.Game.prototype = {
             this.player.body.velocity.y += 50;
         }
         if(this.cursors.left.isDown) {
-            this.player.body.velocity.x -= 50;
+            this.player.body.velocity.x -= 80;
         }
         else if(this.cursors.right.isDown) {
-            this.player.body.velocity.x += 50;
+            this.player.body.velocity.x += 80;
         }
     },
-    render: function() {  this.game.time.advancedTiming = true;  this.game.debug.text(this.game.time.fps || '--', 2, 14, "#ffffff");}
+    render: function() {  
+        this.game.time.advancedTiming = true;
+        this.game.debug.text(this.game.time.fps +' fps' || '-- fps', 2, 14, "#ffffff");}
 }
